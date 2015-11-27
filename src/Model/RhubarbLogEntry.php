@@ -9,7 +9,7 @@ use Rhubarb\Stem\Repositories\MySql\Schema\MySqlModelSchema;
 use Rhubarb\Stem\Schema\Columns\AutoIncrement;
 use Rhubarb\Stem\Schema\Columns\DateTime;
 use Rhubarb\Stem\Schema\Columns\Decimal;
-use Rhubarb\Stem\Schema\Columns\String;
+use Rhubarb\Stem\Schema\Columns\StringColumn;
 
 class RhubarbLogEntry extends Model
 {
@@ -19,12 +19,12 @@ class RhubarbLogEntry extends Model
 
 		$schema->addColumn(
             new AutoIncrement("RhubarbLogEntryID"),
-            new String("LogSession", "30"),
+            new StringColumn("LogSession", "30"),
             new DateTime("EntryDate"),
-            new String("Category", 50),
+            new StringColumn("Category", 50),
             new MySqlMediumText("Message"),
             new MySqlMediumText("AdditionalData"),
-            new String("IpAddress", 15),
+            new StringColumn("IpAddress", 15),
             new Decimal("ExecutionTime", 12, 4),
             new Decimal("ExecutionGapTime", 12, 4)
 		);
