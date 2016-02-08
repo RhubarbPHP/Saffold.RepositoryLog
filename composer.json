@@ -5,8 +5,8 @@
     "homepage": "http://www.rhubarbphp.com/",
     "license": "Apache-2.0",
     "require": {
-      "rhubarbphp/rhubarb": "dev-develop",
-      "rhubarbphp/module-stem": "dev-develop"
+      "rhubarbphp/rhubarb": "1.0.x-dev",
+      "rhubarbphp/module-stem": "1.0.x-dev"
     },
     "autoload": {
       "psr-4": {
