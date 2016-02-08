@@ -6,10 +6,10 @@ use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Repositories\MySql\Schema\Columns\MySqlMediumText;
 use Rhubarb\Stem\Repositories\MySql\Schema\Index;
 use Rhubarb\Stem\Repositories\MySql\Schema\MySqlModelSchema;
-use Rhubarb\Stem\Schema\Columns\AutoIncrement;
-use Rhubarb\Stem\Schema\Columns\DateTime;
-use Rhubarb\Stem\Schema\Columns\Decimal;
-use Rhubarb\Stem\Schema\Columns\String;
+use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
+use Rhubarb\Stem\Schema\Columns\DateTimeColumn;
+use Rhubarb\Stem\Schema\Columns\DecimalColumn;
+use Rhubarb\Stem\Schema\Columns\StringColumn;
 
 class RhubarbLogEntry extends Model
 {
@@ -18,15 +18,15 @@ class RhubarbLogEntry extends Model
 		$schema = new MySqlModelSchema("tblRhubarbLogEntry");
 
 		$schema->addColumn(
-            new AutoIncrement("RhubarbLogEntryID"),
-            new String("LogSession", "30"),
-            new DateTime("EntryDate"),
-            new String("Category", 50),
+            new AutoIncrementColumn("RhubarbLogEntryID"),
+            new StringColumn("LogSession", "30"),
+            new DateTimeColumn("EntryDate"),
+            new StringColumn("Category", 50),
             new MySqlMediumText("Message"),
             new MySqlMediumText("AdditionalData"),
-            new String("IpAddress", 15),
-            new Decimal("ExecutionTime", 12, 4),
-            new Decimal("ExecutionGapTime", 12, 4)
+            new StringColumn("IpAddress", 15),
+            new DecimalColumn("ExecutionTime", 12, 4),
+            new DecimalColumn("ExecutionGapTime", 12, 4)
 		);
 
         $schema->labelColumnName = "Message";
