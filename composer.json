@@ -5,16 +5,13 @@
     "homepage": "http://www.rhubarbphp.com/",
     "license": "Apache-2.0",
     "require": {
-      "rhubarbphp/rhubarb": "dev-master",
-      "rhubarbphp/module-stem": "dev-master"
+      "rhubarbphp/rhubarb": "^1.0.0",
+      "rhubarbphp/module-stem": "^1.0.0"
     },
     "autoload": {
       "psr-4": {
         "Rhubarb\\Scaffolds\\RepositoryLog\\": "src/",
         "Rhubarb\\Scaffolds\\RepositoryLog\\Tests\\": "tests/"
       }
-    },
-    "require-dev": {
-      "phpunit/phpunit": "3.*"
     }
 }
