@@ -26,7 +26,10 @@ class RhubarbLogEntry extends Model
             new MySqlMediumTextColumn("AdditionalData"),
             new StringColumn("IpAddress", 15),
             new DecimalColumn("ExecutionTime", 12, 4),
-            new DecimalColumn("ExecutionGapTime", 12, 4)
+            new DecimalColumn("ExecutionGapTime", 12, 4),
+            new StringColumn("Request", 500),
+            new StringColumn("Host", 200),
+            new StringColumn("ScriptName", 200)
         );
 
         $schema->labelColumnName = "Message";

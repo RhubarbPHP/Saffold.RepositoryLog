@@ -48,6 +48,9 @@ class RepositoryLog extends IndentedMessageLog
         $logEntry->ExecutionTime = $this->getExecutionTime();
         $logEntry->ExecutionGapTime = $this->getTimeSinceLastLog();
         $logEntry->Message = $message;
+        $logEntry->Request = isset($_SERVER["SCRIPT_URI"]) ? $_SERVER["SCRIPT_URI"] : '';
+        $logEntry->Host = isset($_SERVER["SERVER_NAME"]) ? $_SERVER["SERVER_NAME"] : '';
+        $logEntry->ScriptName = isset($_SERVER["SCRIPT_NAME"]) ? $_SERVER["SCRIPT_NAME"] : '';
 
         if (is_array($additionalData) || is_object($additionalData)) {
             $additionalData = json_encode($additionalData, JSON_PRETTY_PRINT);
