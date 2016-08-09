@@ -19,13 +19,14 @@ class RepositoryLog extends IndentedMessageLog
     /**
      * The logger should implement this method to perform the actual log committal.
      *
+     * @param int $level The log level
      * @param string $message The text message to log
      * @param string $category The category of log message
      * @param array $additionalData Any number of additional key value pairs which can be understood by specific
      *                                  logs (e.g. an API log might understand what AuthenticationToken means)
      * @return mixed
      */
-    protected function writeFormattedEntry($message, $category = "", $additionalData)
+    protected function writeFormattedEntry($level, $message, $category = "", $additionalData)
     {
         // There are a number of occasions where this method can cause an infinite loop:
         //
@@ -41,6 +42,7 @@ class RepositoryLog extends IndentedMessageLog
 
         /** @var RhubarbLogEntry $logEntry */
         $logEntry = new $logEntryModelClassName();
+        $logEntry->Level = $level;
         $logEntry->LogSession = $this->uniqueIdentifier;
         $logEntry->IpAddress = self::getRemoteIP();
         $logEntry->Category = ($category == "") ? "CORE" : $category;

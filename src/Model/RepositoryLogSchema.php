@@ -8,7 +8,7 @@ class RepositoryLogSchema extends SolutionSchema
 {
     public function __construct()
     {
-        parent::__construct(0.2);
+        parent::__construct(0.3);
 
         $this->addModel("RhubarbLogEntry", RhubarbLogEntry::class);
     }

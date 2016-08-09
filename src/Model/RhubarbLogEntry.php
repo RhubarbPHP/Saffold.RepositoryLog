@@ -7,6 +7,7 @@ use Rhubarb\Stem\Repositories\MySql\Schema\Columns\MySqlMediumTextColumn;
 use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
 use Rhubarb\Stem\Schema\Columns\DateTimeColumn;
 use Rhubarb\Stem\Schema\Columns\DecimalColumn;
+use Rhubarb\Stem\Schema\Columns\IntegerColumn;
 use Rhubarb\Stem\Schema\Columns\StringColumn;
 use Rhubarb\Stem\Schema\Index;
 use Rhubarb\Stem\Schema\ModelSchema;
@@ -29,7 +30,8 @@ class RhubarbLogEntry extends Model
             new DecimalColumn("ExecutionGapTime", 12, 4),
             new StringColumn("Request", 500),
             new StringColumn("Host", 200),
-            new StringColumn("ScriptName", 200)
+            new StringColumn("ScriptName", 200),
+            new IntegerColumn("ErrorLevel")
         );
 
         $schema->labelColumnName = "Message";
